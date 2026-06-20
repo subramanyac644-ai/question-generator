@@ -12,7 +12,7 @@ export default function AIGenerationPage() {
   const steps = [
     { id: 'upload', title: 'Upload Document', component: <UploadStep onNext={() => setCurrentStep(1)} /> },
     { id: 'generate', title: 'Configure & Generate', component: <GenerateStep onNext={() => setCurrentStep(2)} /> },
-    { id: 'review', title: 'Review Questions', component: <ReviewStep onNext={() => setCurrentStep(3)} /> },
+    { id: 'review', title: 'Review Questions', component: <ReviewStep onNext={() => setCurrentStep(3)} onBack={() => setCurrentStep(1)} /> },
     { id: 'export', title: 'Export', component: <ExportStep onFinish={() => {}} /> },
   ];
 

@@ -5,9 +5,10 @@ import { useTeacherWorkflow } from '../../TeacherContext';
 
 interface ReviewStepProps {
   onNext: () => void;
+  onBack: () => void;
 }
 
-export default function ReviewStep({ onNext }: ReviewStepProps) {
+export default function ReviewStep({ onNext, onBack }: ReviewStepProps) {
   const { generatedQuestions, updateQuestion, config } = useTeacherWorkflow();
 
   if (generatedQuestions.length === 0) {

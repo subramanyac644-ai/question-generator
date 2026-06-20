@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { useTeacherWorkflow } from '../../TeacherContext';
-import { QuestionType } from '@qgp/question-schema';
+import { QuestionType, Difficulty } from '@qgp/question-schema';
 import { useAuth } from '../../../AuthContext';
 
 interface QuestionRow {
@@ -163,7 +163,7 @@ export default function GenerateStep({ onNext }: GenerateStepProps) {
           randomizeOrder,
           // Set primary type/difficulty from first enabled row for backward compatibility
           type: enabledRows[0]?.type || QuestionType.multipleChoice,
-          difficulty: 'MEDIUM',
+          difficulty: Difficulty.MEDIUM,
         });
         setGeneratedQuestions(data.questions);
         onNext();

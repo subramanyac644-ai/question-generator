@@ -591,7 +591,7 @@ export default function StudentDashboard() {
     const questionsList = selectedAssignment.questions || [];
     // Calculate stats
     const totalQuestions = questionsList.length;
-    const attended = questionsList.filter(q => answers[q.question.id] !== undefined && answers[q.question.id] !== null && answers[q.question.id] !== '').length;
+    const attended = questionsList.filter((q: any) => answers[q.question.id] !== undefined && answers[q.question.id] !== null && answers[q.question.id] !== '').length;
     const notAttended = totalQuestions - attended;
     const markedForReview = Object.values(reviewFlags).filter(v => v).length;
     const progressPercent = totalQuestions > 0 ? Math.round((attended / totalQuestions) * 100) : 0;
@@ -612,7 +612,7 @@ export default function StudentDashboard() {
           <div className="mt-4 flex-1 overflow-y-auto">
             <h3 className="text-xs font-semibold text-brand-600 mb-1">Question Navigation</h3>
             <div className="grid grid-cols-5 gap-1">
-              {questionsList.map((item, idx) => {
+              {questionsList.map((item: any, idx: number) => {
                 const qId = item.question.id;
                 const answered = answers[qId] !== undefined && answers[qId] !== null && answers[qId] !== '';
                 const isCurrent = currentQuestionId === qId;
