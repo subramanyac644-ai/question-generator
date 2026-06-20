@@ -1,0 +1,335 @@
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum Role {
+  PRINCIPAL
+  HOD
+  TEACHER
+  STUDENT
+}
+
+enum QuestionType {
+  fillInBlanks
+  multipleChoice
+  multiSelect
+  matchTheFollowing
+  reordering
+  sorting
+  trueFalse
+}
+
+enum QuestionCreationMode {
+  MANUAL
+  AI
+}
+
+enum Difficulty {
+  EASY
+  MEDIUM
+  HARD
+}
+
+enum QuestionSetStatus {
+  draft
+  pending_approval
+  approved
+  published
+  rejected
+  regeneration_requested
+}
+
+enum TypeRequestStatus {
+  success
+  failed
+  skipped
+}
+
+enum ExportValidationResult {
+  passed
+  blocked
+}
+
+model Department {
+  id        String    @id @default(uuid()) @db.Uuid
+  name      String    @unique
+  code      String    @unique // e.g., "CSE", "ECE"
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime? // Soft delete support
+
+  // Relations
+  users           User[]
+  sourceDocuments SourceDocument[]
+  questionSets    QuestionSet[]
+
+  @@index([code])
+  @@index([deletedAt])
+  @@map("departments")
+}
+
+model User {
+  id           String    @id @default(uuid()) @db.Uuid
+  email        String    @unique
+  name         String?
+  passwordHash String
+  role         Role      @default(STUDENT)
+  departmentId String?   @db.Uuid
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+  deletedAt    DateTime? // Soft delete support
+
+  // Relations
+  department         Department?         @relation(fields: [departmentId], references: [id], onDelete: SetNull)
+  sourceDocuments    SourceDocument[]    @relation("UploadedDocuments")
+  questionSets       QuestionSet[]       @relation("CreatedQuestionSets")
+  generationRuns     GenerationRun[]     @relation("UserGenerations")
+  exportLogs         ExportLog[]         @relation("UserExports")
+  auditLogs          AuditLog[]          @relation("UserAudits")
+  assessmentAttempts AssessmentAttempt[]
+  notifications      Notification[]      @relation("UserNotifications")
+
+  @@index([email])
+  @@index([role])
+  @@index([departmentId])
+  @@index([deletedAt])
+  @@map("users")
+}
+
+model SourceDocument {
+  id               String    @id @default(uuid()) @db.Uuid
+  title            String
+  fileUrl          String
+  fileType         String // e.g., "PDF", "DOCX", "TXT"
+  fileSize         Int // Size in bytes
+  processingStatus String    @default("pending")
+  extractedText    String?   @db.Text
+  pageCount        Int?
+  wordCount        Int?
+  departmentId     String    @db.Uuid
+  uploadedById     String    @db.Uuid
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+  deletedAt        DateTime? // Soft delete support
+
+  // Relations
+  department Department      @relation(fields: [departmentId], references: [id], onDelete: Cascade)
+  uploadedBy User            @relation("UploadedDocuments", fields: [uploadedById], references: [id], onDelete: Cascade)
+  questions  Question[]      @relation("DocumentQuestions")
+  chunks     DocumentChunk[] @relation("DocumentChunks")
+
+  @@index([departmentId])
+  @@index([uploadedById])
+  @@index([deletedAt])
+  @@map("source_documents")
+}
+
+model Question {
+  id         String       @id @default(uuid()) @db.Uuid
+  type       QuestionType
+  difficulty Difficulty
+  prompt     String       @db.Text
+
+  // JSON payload structure conforming to Section 3 of schema.md (options, correctAnswers, etc.)
+  content Json
+
+  tags             String[]
+  sourceDocumentId String?   @db.Uuid
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+  deletedAt        DateTime? // Soft delete support
+
+  // Relations
+  sourceDocument SourceDocument?       @relation("DocumentQuestions", fields: [sourceDocumentId], references: [id], onDelete: SetNull)
+  questionSets   QuestionSetQuestion[]
+
+  @@index([type])
+  @@index([difficulty])
+  @@index([sourceDocumentId])
+  @@index([deletedAt])
+  @@map("questions")
+}
+
+model QuestionSet {
+  id                   String               @id @default(uuid()) @db.Uuid
+  title                String
+  description          String?              @db.Text
+  timeLimitSeconds     Int                  @default(1800)
+  status               QuestionSetStatus    @default(draft)
+  departmentId         String               @db.Uuid
+  createdById          String               @db.Uuid
+  createdAt            DateTime             @default(now())
+  updatedAt            DateTime             @updatedAt
+  deletedAt            DateTime? // Soft delete support
+  questionCreationMode QuestionCreationMode @default(AI) @map("question_creation_mode")
+  testDuration         Int                  @default(30) @map("test_duration") // in minutes
+  startDate            DateTime?            @map("start_date")
+  endDate              DateTime?            @map("end_date")
+  negativeMarking      Float                @default(0) @map("negative_marking")
+  randomizeOrder       Boolean              @default(false) @map("randomize_order")
+  hodComment           String?              @map("hod_comment") @db.Text
+
+  // Relations
+  department         Department            @relation(fields: [departmentId], references: [id], onDelete: Cascade)
+  createdBy          User                  @relation("CreatedQuestionSets", fields: [createdById], references: [id], onDelete: Cascade)
+  questions          QuestionSetQuestion[]
+  typeRequests       TypeRequest[]
+  generationRuns     GenerationRun[]
+  exportLogs         ExportLog[]           @relation("QuestionSetExports")
+  assessmentAttempts AssessmentAttempt[]
+
+  @@index([departmentId])
+  @@index([createdById])
+  @@index([status])
+  @@index([deletedAt])
+  @@map("question_sets")
+}
+
+// Explicit junction table for ordering inside QuestionSet
+model QuestionSetQuestion {
+  questionSetId String @db.Uuid
+  questionId    String @db.Uuid
+  order         Int // Sort order of the question in this set
+
+  // Relations
+  questionSet QuestionSet @relation(fields: [questionSetId], references: [id], onDelete: Cascade)
+  question    Question    @relation(fields: [questionId], references: [id], onDelete: Cascade)
+
+  @@id([questionSetId, questionId])
+  @@index([questionId])
+  @@map("question_set_questions")
+}
+
+// Track per-type request budgets & config
+model TypeRequest {
+  id             String            @id @default(uuid()) @db.Uuid
+  questionSetId  String            @db.Uuid
+  questionType   QuestionType
+  requestedCount Int
+  status         TypeRequestStatus @default(skipped)
+  failureReason  String?           @db.Text
+
+  // Relations
+  questionSet QuestionSet @relation(fields: [questionSetId], references: [id], onDelete: Cascade)
+
+  @@index([questionSetId])
+  @@index([questionType])
+  @@map("type_requests")
+}
+
+// Generation session tracking (for auditing generation outcomes)
+model GenerationRun {
+  id            String   @id @default(uuid()) @db.Uuid
+  questionSetId String   @db.Uuid
+  triggeredById String   @db.Uuid
+  timestamp     DateTime @default(now())
+
+  // JSON array outcome log matching Section 5 of schema.md (requested vs actual counts per type)
+  perTypeOutcomes Json
+
+  // Relations
+  questionSet QuestionSet @relation(fields: [questionSetId], references: [id], onDelete: Cascade)
+  triggeredBy User        @relation("UserGenerations", fields: [triggeredById], references: [id], onDelete: Cascade)
+
+  @@index([questionSetId])
+  @@index([triggeredById])
+  @@map("generation_runs")
+}
+
+// Export event tracking (formerly ExportLog)
+model ExportLog {
+  id               String                 @id @default(uuid()) @db.Uuid
+  questionSetId    String                 @db.Uuid
+  exportedById     String                 @db.Uuid
+  fileName         String // e.g., questions_1711202612.json
+  validationResult ExportValidationResult
+  timestamp        DateTime               @default(now())
+
+  // Relations
+  questionSet QuestionSet @relation("QuestionSetExports", fields: [questionSetId], references: [id], onDelete: Cascade)
+  exportedBy  User        @relation("UserExports", fields: [exportedById], references: [id], onDelete: Cascade)
+
+  @@index([questionSetId])
+  @@index([exportedById])
+  @@map("export_logs")
+}
+
+model AuditLog {
+  id        String   @id @default(uuid()) @db.Uuid
+  userId    String?  @db.Uuid
+  action    String // e.g., "USER_LOGIN", "QUESTION_GENERATE", "DOCUMENT_UPLOAD"
+  resource  String // e.g., "users", "questions", "source_documents"
+  details   Json?
+  ipAddress String?
+  timestamp DateTime @default(now())
+
+  // Relations
+  user User? @relation("UserAudits", fields: [userId], references: [id], onDelete: SetNull)
+
+  @@index([userId])
+  @@index([action])
+  @@map("audit_logs")
+}
+
+model DocumentChunk {
+  id               String   @id @default(uuid()) @db.Uuid
+  sourceDocumentId String   @db.Uuid
+  chunkIndex       Int // Sequential order of this chunk
+  chunkText        String   @db.Text
+  charCount        Int
+  wordCount        Int
+  pageNumber       Int? // Estimated page number
+  metadata         Json? // Extra info: headings, section context, etc.
+  createdAt        DateTime @default(now())
+
+  sourceDocument SourceDocument @relation("DocumentChunks", fields: [sourceDocumentId], references: [id], onDelete: Cascade)
+
+  @@index([sourceDocumentId])
+  @@index([chunkIndex])
+  @@map("document_chunks")
+}
+
+model AssessmentAttempt {
+  id               String    @id @default(uuid()) @db.Uuid
+  userId           String    @db.Uuid
+  questionSetId    String    @db.Uuid
+  testDuration     Int       @map("test_duration") // in minutes
+  startedAt        DateTime  @default(now()) @map("started_at")
+  expiresAt        DateTime  @map("expires_at")
+  submittedAt      DateTime? @map("submitted_at")
+  timeTaken        Int?      @map("time_taken") // in seconds
+  submissionStatus String    @default("ongoing") @map("submission_status") // "ongoing", "submitted", "auto_submitted"
+  answers          Json      @default("{}")
+  score            Float?
+  maxScore         Float?
+  questionOrder    Json?     @map("question_order")
+
+  // Relations
+  user        User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  questionSet QuestionSet @relation(fields: [questionSetId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([questionSetId])
+  @@map("assessment_attempts")
+}
+
+model Notification {
+  id        String   @id @default(uuid()) @db.Uuid
+  userId    String   @db.Uuid
+  message   String   @db.Text
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  // Relations
+  user User @relation("UserNotifications", fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([read])
+  @@map("notifications")
+}

@@ -1,0 +1,1053 @@
+[2026-06-18T17:09:42.036Z]
+Error: 
+Invalid `this.databaseService.questionSet.create()` invocation in
+C:\Users\subramanya c\OneDrive\Documents\Desktop\Question paper\dist\apps\api\main.js:3696:72
+
+  3693     }
+  3694 }
+  3695 // Create the QuestionSet
+→ 3696 const questionSet = await this.databaseService.questionSet.create(
+The column `negative_marking` does not exist in the current database.
+Stack: PrismaClientKnownRequestError: 
+Invalid `this.databaseService.questionSet.create()` invocation in
+C:\Users\subramanya c\OneDrive\Documents\Desktop\Question paper\dist\apps\api\main.js:3696:72
+
+  3693     }
+  3694 }
+  3695 // Create the QuestionSet
+→ 3696 const questionSet = await this.databaseService.questionSet.create(
+The column `negative_marking` does not exist in the current database.
+    at $n.handleRequestError (C:\Users\subramanya c\OneDrive\Documents\Desktop\Question paper\node_modules\@prisma\client\runtime\library.js:121:7315)
+    at $n.handleAndLogRequestError (C:\Users\subramanya c\OneDrive\Documents\Desktop\Question paper\node_modules\@prisma\client\runtime\library.js:121:6623)
+    at $n.request (C:\Users\subramanya c\OneDrive\Documents\Desktop\Question paper\node_modules\@prisma\client\runtime\library.js:121:6307)
+    at l (C:\Users\subramanya c\OneDrive\Documents\Desktop\Question paper\node_modules\@prisma\client\runtime\library.js:130:9633)
+    at AppController.saveQuestionSet (C:\Users\subramanya c\OneDrive\Documents\Desktop\Question paper\dist\apps\api\main.js:3696:33)
+    at C:\Users\subramanya c\OneDrive\Documents\Desktop\Question paper\node_modules\@nestjs\core\router\router-execution-context.js:46:28
+    at C:\Users\subramanya c\OneDrive\Documents\Desktop\Question paper\node_modules\@nestjs\core\router\router-proxy.js:9:17
+Body: {
+  "title": " Assessment - multipleChoice",
+  "description": "Quiz generated on the topic \"\" with MEDIUM difficulty.",
+  "difficulty": "MEDIUM",
+  "type": "multipleChoice",
+  "timeLimitSeconds": 7200,
+  "testDuration": 120,
+  "startDate": null,
+  "endDate": null,
+  "sourceDocumentId": "91aea70a-a041-4ae5-9111-c3d9d90cda5a",
+  "negativeMarking": 1,
+  "randomizeOrder": true,
+  "questions": [
+    {
+      "id": 568498404,
+      "marks": 1,
+      "explanation": "This is a mocked explanation for the document content. Review the document text for details such as: \"HYBRID BEAMFORMING FOR MM-WAVE SYSTEMS\".",
+      "question": {
+        "hide_text": false,
+        "text": "[Q#1] According to the document, what is a key characteristic mentioned?",
+        "read_text": true,
+        "image": ""
+      },
+      "options": [
+        {
+          "hide_text": false,
+          "text": "It improves overall system modularity and maintainability.",
+          "read_text": true,
+          "image": ""
+        },
+        {
+          "hide_text": false,
+          "text": "It increases static compilation barriers significantly.",
+          "read_text": true,
+          "image": ""
+        }
+      ],
+      "correctAnswer": "It improves overall system modularity and maintainability.",
+      "type": "multipleChoice",
+      "difficulty": "EASY"
+    },
+    {
+      "id": 881391504,
+      "marks": 1,
+      "explanation": "This is a mocked explanation for the document content. Review the document text for details such as: \"HYBRID BEAMFORMING FOR MM-WAVE SYSTEMS\".",
+      "question": {
+        "hide_text": false,
+        "text": "[Q#2] What is a primary benefit discussed in the document?",
+        "read_text": true,
+        "image": ""
+      },
+      "options": [
+        {
+          "hide_text": false,
+          "text": "It helps reduce coupling between system components.",
+          "read_text": true,
+          "image": ""
+        },
+        {
+          "hide_text": false,
+          "text": "It encourages tight interdependence across modules.",
+          "read_text": true,
+          "image": ""
+        }
+      ],
+      "correctAnswer": "It helps reduce coupling between system components.",
+      "type": "multipleChoice",
+      "difficulty": "EASY"
+    },
+    {
+      "id": 222939407,
+      "marks": 1,
+      "explanation": "This is a mocked explanation for the document content. Review the document text for details such as: \"HYBRID BEAMFORMING FOR MM-WAVE SYSTEMS\".",
+      "question": {
+        "hide_text": false,
+        "text": "[Q#3] Which statement best describes the main concept in the document?",
+        "read_text": true,
+        "image": ""
+      },
+      "options": [
+        {
+          "hide_text": false,
+          "text": "It supports extensible application architecture design.",
+          "read_text": true,
+          "image": ""
+        },
+        {
+          "hide_text": false,
+          "text": "It primarily limits runtime flexibility and adaptability.",
+          "read_text": true,
+          "image": ""
+        }
+      ],
+      "correctAnswer": "It supports extensible application architecture design.",
+      "type": "multipleChoice",
+      "difficulty": "EASY"
+    },
+    {
+      "id": 487428742,
+      "marks": 1,
+      "explanation": "This is a mocked explanation for the document content. Review the document text for details such as: \"HYBRID BEAMFORMING FOR MM-WAVE SYSTEMS\".",
+      "question": {
+        "hide_text": false,
+        "text": "[Q#4] Based on the document, which of these is true?",
+        "read_text": true,
+        "image": ""
+      },
+      "options": [
+        {
+          "hide_text": false,
+          "text": "The approach improves code readability and component reuse.",
+          "read_text": true,
+          "image": ""
+        },
+        {
+          "hide_text": false,
+          "text": "The approach typically decreases overall system clarity.",
+          "read_text": true,
+          "image": ""
+        }
+      ],
+      "correctAnswer": "The approach improves code readability and component reuse.",
+      "type": "multipleChoice",
+      "difficulty": "EASY"
+    },
+    {
+      "id": 644729650,
+      "marks": 1,
+      "explanation": "This is a mocked explanation for the document content. Review the document text for details such as: \"HYBRID BEAMFORMING FOR MM-WAVE SYSTEMS\".",
+      "question": {
+        "hide_text": false,
+        "text": "[Q#1] According to the document, what is a key characteristic mentioned?",
+        "read_text": true,
+        "image": ""
+      },
+      "options": [
+        {
+          "hide_text": false,
+          "text": "It improves overall system modularity and maintainability.",
+          "read_text": true,
+          "image": ""
+        },
+        {
+          "hide_text": false,
+          "text": "It increases static compilation barriers significantly.",
+          "read_text": true,
+          "image": ""
+        }
+      ],
+      "correctAnswer": "It improves overall system modularity and maintainability.",
+      "type": "multipleChoice",
+      "difficulty": "MEDIUM"
+    },
+    {
+      "id": 555871350,
+      "marks": 1,
+      "explanation": "This is a mocked explanation for the document content. Review the document text for details such as: \"HYBRID BEAMFORMING FOR MM-WAVE SYSTEMS\".",
+      "question": {
+        "hide_text": false,
+        "text": "[Q#2] What is a primary benefit discussed in the document?",
+        "read_text": true,
+        "image": ""
+      },
+      "options": [
+        {
+          "hide_text": false,
+          "text": "It helps reduce coupling between system components.",
+          "read_text": true,
+          "image": ""
+        },
+        {
+          "hide_text": false,
+          "text": "It encourages tight interdependence across modules.",
+          "read_text": true,
+          "image": ""
+        }
+      ],
+      "correctAnswer": "It helps reduce coupling between system components.",
+      "type": "multipleChoice",
+      "difficulty": "MEDIUM"
+    },
+    {
+      "id": 442489786,
+      "marks": 1,
+      "explanation": "This is a mocked explanation for the document content. Review the document text for details such as: \"HYBRID BEAMFORMING FOR MM-WAVE SYSTEMS\".",
+      "question": {
+        "hide_text": false,
+        "text": "[Q#3] Which statement best describes the main concept in the document?",
+        "read_text": true,
+        "image": ""
+      },
+      "options": [
+        {
+          "hide_text": false,
+          "text": "It supports extensible application architecture design.",
+          "read_text": true,
+          "image": ""
+        },
+        {
+          "hide_text": false,
+          "text": "It primarily limits runtime flexibility and adaptability.",
+          "read_text": true,
+          "image": ""
+        }
+      ],
+      "correctAnswer": "It supports extensible application architecture design.",
+      "type": "multipleChoice",
+      "difficulty": "MEDIUM"
+    },
+    {
+      "id": 630260154,
+      "marks": 1,
+      "explanation": "This is a mocked explanation for the document content. Review the document text for details such as: \"HYBRID BEAMFORMING FOR MM-WAVE SYSTEMS\".",
+      "question": {
+        "hide_text": false,
+        "text": "[Q#4] Based on the document, which of these is true?",
+        "read_text": true,
+        "image": ""
+      },
+      "options": [
+        {
+          "hide_text": false,
+          "text": "The approach improves code readability and component reuse.",
+          "read_text": true,
+          "image": ""
+        },
+        {
+          "hide_text": false,
+          "text": "The approach typically decreases overall system clarity.",
+          "read_text": true,
+          "image": ""
+        }
+      ],
+      "correctAnswer": "The approach improves code readability and component reuse.",
+      "type": "multipleChoice",
+      "difficulty": "MEDIUM"
+    },
+    {
+      "id": 86283642,
+      "marks": 1,
+      "explanation": "This is a mocked explanation for the document content. Review the document text for details such as: \"HYBRID BEAMFORMING FOR MM-WAVE SYSTEMS\".",
+      "question": {
+        "hide_text": false,
+        "text": "[Q#1] According to the document, what is a key characteristic mentioned?",
+        "read_text": true,
+        "image": ""
+      },
+      "options": [
+        {
+          "hide_text": false,
+          "text": "It improves overall system modularity and maintainability.",
+          "read_text": true,
+          "image": ""
+        },
+        {
+          "hide_text": false,
+          "text": "It increases static compilation barriers significantly.",
+          "read_text": true,
+          "image": ""
+        }
+      ],
+      "correctAnswer": "It improves overall system modularity and maintainability.",
+      "type": "multipleChoice",
+      "difficulty": "HARD"
+    },
+    {
+      "id": 819779441,
+      "marks": 1,
+      "explanation": "This is a mocked explanation for the document content. Review the document text for details such as: \"HYBRID BEAMFORMING FOR MM-WAVE SYSTEMS\".",
+      "question": {
+        "hide_text": false,
+        "text": "[Q#2] What is a primary benefit discussed in the document?",
+        "read_text": true,
+        "image": ""
+      },
+      "options": [
+        {
+          "hide_text": false,
+          "text": "It helps reduce coupling between system components.",
+          "read_text": true,
+          "image": ""
+        },
+        {
+          "hide_text": false,
+          "text": "It encourages tight interdependence across modules.",
+          "read_text": true,
+          "image": ""
+        }
+      ],
+      "correctAnswer": "It helps reduce coupling between system components.",
+      "type": "multipleChoice",
+      "difficulty": "HARD"
+    },
+    {
+      "id": 29938081,
+      "marks": 2,
+      "explanation": "This is a mocked explanation for the document content. Review the document text for details such as: \"HYBRID BEAMFORMING FOR MM-WAVE SYSTEMS\".",
+      "question": {
+        "hide_text": false,
+        "text": "[Q#1] Select all advantages discussed in the document.",
+        "read_text": true,
+        "image": ""
+      },
+      "options": [
+        {
+          "hide_text": false,
+          "text": "Improved system flexibility",
+          "read_text": true,
+          "image": ""
+        },
+        {
+          "hide_text": false,
+          "text": "Reduced maintainability",
+          "read_text": true,
+          "image": ""
+        },
+        {
+          "hide_text": false,
+          "text": "Simplified testing processes",
+          "read_text": true,
+          "image": ""
+        }
+      ],
+      "correctAnswer": [
+        "Improved system flexibility",
+        "Simplified testing processes"
+      ],
+      "type": "multiSelect",
+      "difficulty": "EASY"
+    },
+    {
+      "id": 432079882,
+      "marks": 2,
+      "explanation": "This is a mocked explanation for the document content. Review the document text for details such as: \"HYBRID BEAMFORMING FOR MM-WAVE SYSTEMS\".",
+      "question": {
+        "hide_text": false,
+        "text": "[Q#2] Which of the following benefits are mentioned in the document?",
+        "read_text": true,
+        "image": ""
+      },
+      "options": [
+        {
+          "hide_text": false,
+          "text": "Higher code reuse potential",
+          "read_text": true,
+          "image": ""
+        },
+        {
+          "hide_text": false,
+          "text": "More rigid module boundaries",
+          "read_text": true,
+          "image": ""
+        },
+        {
+          "hide_text": false,
+          "text": "Easier debugging and troubleshooting",
+          "read_text": true,
+          "image": ""
+        }
+      ],
+      "correctAnswer": [
+        "Higher code reuse potential",
+        "Easier debugging and troubleshooting"
+      ],
+      "type": "multiSelect",
+      "difficulty": "EASY"
+    },
+    {
+      "id": 764492514,
+      "marks": 2,
+      "explanation": "This is a mocked explanation for the document content. Review the document text for details such as: \"HYBRID BEAMFORMING FOR MM-WAVE SYSTEMS\".",
+      "question": {
+        "hide_text": false,
+        "text": "[Q#1] Select all advantages discussed in the document.",
+        "read_text": true,
+        "image": ""
+      },
+      "options": [
+        {
+          "hide_text": false,
+          "text": "Improved system flexibility",
+          "read_text": true,
+          "image": ""
+        },
+        {
+          "hide_text": false,
+          "text": "Reduced maintainability",
+          "read_text": true,
+          "image": ""
+        },
+        {
+          "hide_text": false,
+          "text": "Simplified testing processes",
+          "read_text": true,
+          "image": ""
+        }
+      ],
+      "correctAnswer": [
+        "Improved system flexibility",
+        "Simplified testing processes"
+      ],
+      "type": "multiSelect",
+      "difficulty": "MEDIUM"
+    },
+    {
+      "id": 192779916,
+      "marks": 2,
+      "explanation": "This is a mocked explanation for the document content. Review the document text for details such as: \"HYBRID BEAMFORMING FOR MM-WAVE SYSTEMS\".",
+      "question": {
+        "hide_text": false,
+        "text": "[Q#2] Which of the following benefits are mentioned in the document?",
+        "read_text": true,
+        "image": ""
+      },
+      "options": [
+        {
+          "hide_text": false,
+          "text": "Higher code reuse potential",
+          "read_text": true,
+          "image": ""
+        },
+        {
+          "hide_text": false,
+          "text": "More rigid module boundaries",
+          "read_text": true,
+          "image": ""
+        },
+        {
+          "hide_text": false,
+          "text": "Easier debugging and troubleshooting",
+          "read_text": true,
+          "image": ""
+        }
+      ],
+      "correctAnswer": [
+        "Higher code reuse potential",
+        "Easier debugging and troubleshooting"
+      ],
+      "type": "multiSelect",
+      "difficulty": "MEDIUM"
+    },
+    {
+      "id": 310128871,
+      "marks": 2,
+      "explanation": "This is a mocked explanation for the document content. Review the document text for details such as: \"HYBRID BEAMFORMING FOR MM-WAVE SYSTEMS\".",
+      "question": {
+        "hide_text": false,
+        "text": "[Q#1] Select all advantages discussed in the document.",
+        "read_text": true,
+        "image": ""
+      },
+      "options": [
+        {
+          "hide_text": false,
+          "text": "Improved system flexibility",
+          "read_text": true,
+          "image": ""
+        },
+        {
+          "hide_text": false,
+          "text": "Reduced maintainability",
+          "read_text": true,
+          "image": ""
+        },
+        {
+          "hide_text": false,
+          "text": "Simplified testing processes",
+          "read_text": true,
+          "image": ""
+        }
+      ],
+      "correctAnswer": [
+        "Improved system flexibility",
+        "Simplified testing processes"
+      ],
+      "type": "multiSelect",
+      "difficulty": "HARD"
+    },
+    {
+      "id": 62778205,
+      "marks": 1,
+      "explanation": "This is a mocked explanation for the document content. Review the document text for details such as: \"HYBRID BEAMFORMING FOR MM-WAVE SYSTEMS\".",
+      "question": {
+        "hide_text": false,
+        "text": "[Q#1] According to the document, this concept often acts as a ______ goal for system design.",
+        "read_text": true,
+        "image": ""
+      },
+      "correctAnswer": "primary",
+      "alternatives": [
+        "secondary",
+        "optional"
+      ],
+      "type": "fillInBlanks",
+      "difficulty": "EASY"
+    },
+    {
+      "id": 365546873,
+      "marks": 1,
+      "explanation": "This is a mocked explanation for the document content. Review the document text for details such as: \"HYBRID BEAMFORMING FOR MM-WAVE SYSTEMS\".",
+      "question": {
+        "hide_text": false,
+        "text": "[Q#2] The document discusses how to improve ______ and code reusability.",
+        "read_text": true,
+        "image": ""
+      },
+      "correctAnswer": "modularity",
+      "alternatives": [
+        "redundancy",
+        "complexity"
+      ],
+      "type": "fillInBlanks",
+      "difficulty": "EASY"
+    },
+    {
+      "id": 399388678,
+      "marks": 1,
+      "explanation": "This is a mocked explanation for the document content. Review the document text for details such as: \"HYBRID BEAMFORMING FOR MM-WAVE SYSTEMS\".",
+      "question": {
+        "hide_text": false,
+        "text": "[Q#1] According to the document, this concept often acts as a ______ goal for system design.",
+        "read_text": true,
+        "image": ""
+      },
+      "correctAnswer": "primary",
+      "alternatives": [
+        "secondary",
+        "optional"
+      ],
+      "type": "fillInBlanks",
+      "difficulty": "MEDIUM"
+    },
+    {
+      "id": 402146272,
+      "marks": 1,
+      "explanation": "This is a mocked explanation for the document content. Review the document text for details such as: \"HYBRID BEAMFORMING FOR MM-WAVE SYSTEMS\".",
+      "question": {
+        "hide_text": false,
+        "text": "[Q#2] The document discusses how to improve ______ and code reusability.",
+        "read_text": true,
+        "image": ""
+      },
+      "correctAnswer": "modularity",
+      "alternatives": [
+        "redundancy",
+        "complexity"
+      ],
+      "type": "fillInBlanks",
+      "difficulty": "MEDIUM"
+    },
+    {
+      "id": 418785948,
+      "marks": 1,
+      "explanation": "This is a mocked explanation for the document content. Review the document text for details such as: \"HYBRID BEAMFORMING FOR MM-WAVE SYSTEMS\".",
+      "question": {
+        "hide_text": false,
+        "text": "[Q#1] According to the document, this concept often acts as a ______ goal for system design.",
+        "read_text": true,
+        "image": ""
+      },
+      "correctAnswer": "primary",
+      "alternatives": [
+        "secondary",
+        "optional"
+      ],
+      "type": "fillInBlanks",
+      "difficulty": "HARD"
+    },
+    {
+      "id": 15352878,
+      "marks": 1,
+      "explanation": "This is a mocked explanation for the document content. Review the document text for details such as: \"HYBRID BEAMFORMING FOR MM-WAVE SYSTEMS\".",
+      "question": {
+        "hide_text": false,
+        "text": "[Q#1] According to the document, good practices always guarantee easier maintenance.",
+        "read_text": true,
+        "image": ""
+      },
+      "correctAnswer": false,
+      "type": "trueFalse",
+      "difficulty": "EASY"
+    },
+    {
+      "id": 836282690,
+      "marks": 1,
+      "explanation": "This is a mocked explanation for the document content. Review the document text for details such as: \"HYBRID BEAMFORMING FOR MM-WAVE SYSTEMS\".",
+      "question": {
+        "hide_text": false,
+        "text": "[Q#2] The document suggests that proper techniques can improve code clarity.",
+        "read_text": true,
+        "image": ""
+      },
+      "correctAnswer": true,
+      "type": "trueFalse",
+      "difficulty": "EASY"
+    },
+    {
+      "id": 537560427,
+      "marks": 1,
+      "explanation": "This is a mocked explanation for the document content. Review the document text for details such as: \"HYBRID BEAMFORMING FOR MM-WAVE SYSTEMS\".",
+      "question": {
+        "hide_text": false,
+        "text": "[Q#1] According to the document, good practices always guarantee easier maintenance.",
+        "read_text": true,
+        "image": ""
+      },
+      "correctAnswer": false,
+      "type": "trueFalse",
+      "difficulty": "MEDIUM"
+    },
+    {
+      "id": 153820620,
+      "marks": 1,
+      "explanation": "This is a mocked explanation for the document content. Review the document text for details such as: \"HYBRID BEAMFORMING FOR MM-WAVE SYSTEMS\".",
+      "question": {
+        "hide_text": false,
+        "text": "[Q#2] The document suggests that proper techniques can improve code clarity.",
+        "read_text": true,
+        "image": ""
+      },
+      "correctAnswer": true,
+      "type": "trueFalse",
+      "difficulty": "MEDIUM"
+    },
+    {
+      "id": 873118267,
+      "marks": 1,
+      "explanation": "This is a mocked explanation for the document content. Review the document text for details such as: \"HYBRID BEAMFORMING FOR MM-WAVE SYSTEMS\".",
+      "question": {
+        "hide_text": false,
+        "text": "[Q#1] According to the document, good practices always guarantee easier maintenance.",
+        "read_text": true,
+        "image": ""
+      },
+      "correctAnswer": false,
+      "type": "trueFalse",
+      "difficulty": "HARD"
+    },
+    {
+      "id": 171065399,
+      "marks": 2,
+      "explanation": "This is a mocked explanation for the document content. Review the document text for details such as: \"HYBRID BEAMFORMING FOR MM-WAVE SYSTEMS\".",
+      "question": {
+        "hide_text": false,
+        "text": "[Q#1] Match the terms mentioned in the document to their meanings.",
+        "read_text": true,
+        "image": ""
+      },
+      "leftItems": [
+        "Modularity",
+        "Reusability"
+      ],
+      "rightItems": [
+        "Using components in multiple contexts",
+        "Separating responsibilities cleanly"
+      ],
+      "correctAnswer": [
+        {
+          "left": "Modularity",
+          "right": "Separating responsibilities cleanly"
+        },
+        {
+          "left": "Reusability",
+          "right": "Using components in multiple contexts"
+        }
+      ],
+      "type": "matchTheFollowing",
+      "difficulty": "EASY"
+    },
+    {
+      "id": 594439438,
+      "marks": 2,
+      "explanation": "This is a mocked explanation for the document content. Review the document text for details such as: \"HYBRID BEAMFORMING FOR MM-WAVE SYSTEMS\".",
+      "question": {
+        "hide_text": false,
+        "text": "[Q#2] Match each concept from the document with its description.",
+        "read_text": true,
+        "image": ""
+      },
+      "leftItems": [
+        "Abstraction",
+        "Cohesion"
+      ],
+      "rightItems": [
+        "Simplifying complex concepts",
+        "Keeping related responsibilities together"
+      ],
+      "correctAnswer": [
+        {
+          "left": "Abstraction",
+          "right": "Simplifying complex concepts"
+        },
+        {
+          "left": "Cohesion",
+          "right": "Keeping related responsibilities together"
+        }
+      ],
+      "type": "matchTheFollowing",
+      "difficulty": "EASY"
+    },
+    {
+      "id": 103657744,
+      "marks": 2,
+      "explanation": "This is a mocked explanation for the document content. Review the document text for details such as: \"HYBRID BEAMFORMING FOR MM-WAVE SYSTEMS\".",
+      "question": {
+        "hide_text": false,
+        "text": "[Q#1] Match the terms mentioned in the document to their meanings.",
+        "read_text": true,
+        "image": ""
+      },
+      "leftItems": [
+        "Modularity",
+        "Reusability"
+      ],
+      "rightItems": [
+        "Using components in multiple contexts",
+        "Separating responsibilities cleanly"
+      ],
+      "correctAnswer": [
+        {
+          "left": "Modularity",
+          "right": "Separating responsibilities cleanly"
+        },
+        {
+          "left": "Reusability",
+          "right": "Using components in multiple contexts"
+        }
+      ],
+      "type": "matchTheFollowing",
+      "difficulty": "MEDIUM"
+    },
+    {
+      "id": 952276768,
+      "marks": 2,
+      "explanation": "This is a mocked explanation for the document content. Review the document text for details such as: \"HYBRID BEAMFORMING FOR MM-WAVE SYSTEMS\".",
+      "question": {
+        "hide_text": false,
+        "text": "[Q#2] Match each concept from the document with its description.",
+        "read_text": true,
+        "image": ""
+      },
+      "leftItems": [
+        "Abstraction",
+        "Cohesion"
+      ],
+      "rightItems": [
+        "Simplifying complex concepts",
+        "Keeping related responsibilities together"
+      ],
+      "correctAnswer": [
+        {
+          "left": "Abstraction",
+          "right": "Simplifying complex concepts"
+        },
+        {
+          "left": "Cohesion",
+          "right": "Keeping related responsibilities together"
+        }
+      ],
+      "type": "matchTheFollowing",
+      "difficulty": "MEDIUM"
+    },
+    {
+      "id": 882314035,
+      "marks": 2,
+      "explanation": "This is a mocked explanation for the document content. Review the document text for details such as: \"HYBRID BEAMFORMING FOR MM-WAVE SYSTEMS\".",
+      "question": {
+        "hide_text": false,
+        "text": "[Q#1] Match the terms mentioned in the document to their meanings.",
+        "read_text": true,
+        "image": ""
+      },
+      "leftItems": [
+        "Modularity",
+        "Reusability"
+      ],
+      "rightItems": [
+        "Using components in multiple contexts",
+        "Separating responsibilities cleanly"
+      ],
+      "correctAnswer": [
+        {
+          "left": "Modularity",
+          "right": "Separating responsibilities cleanly"
+        },
+        {
+          "left": "Reusability",
+          "right": "Using components in multiple contexts"
+        }
+      ],
+      "type": "matchTheFollowing",
+      "difficulty": "HARD"
+    },
+    {
+      "id": 447261193,
+      "marks": 2,
+      "explanation": "This is a mocked explanation for the document content. Review the document text for details such as: \"HYBRID BEAMFORMING FOR MM-WAVE SYSTEMS\".",
+      "question": {
+        "hide_text": false,
+        "text": "[Q#1] Arrange these steps in the proper sequence according to the document.",
+        "read_text": true,
+        "image": ""
+      },
+      "items": [
+        "Write comprehensive tests",
+        "Refactor existing code",
+        "Define clear interfaces"
+      ],
+      "correctAnswer": [
+        "Define clear interfaces",
+        "Write comprehensive tests",
+        "Refactor existing code"
+      ],
+      "type": "reordering",
+      "difficulty": "EASY"
+    },
+    {
+      "id": 983182360,
+      "marks": 2,
+      "explanation": "This is a mocked explanation for the document content. Review the document text for details such as: \"HYBRID BEAMFORMING FOR MM-WAVE SYSTEMS\".",
+      "question": {
+        "hide_text": false,
+        "text": "[Q#2] Put these activities in correct order from the document.",
+        "read_text": true,
+        "image": ""
+      },
+      "items": [
+        "Identify system boundaries",
+        "Document the design",
+        "Implement individual modules"
+      ],
+      "correctAnswer": [
+        "Identify system boundaries",
+        "Implement individual modules",
+        "Document the design"
+      ],
+      "type": "reordering",
+      "difficulty": "EASY"
+    },
+    {
+      "id": 716369659,
+      "marks": 2,
+      "explanation": "This is a mocked explanation for the document content. Review the document text for details such as: \"HYBRID BEAMFORMING FOR MM-WAVE SYSTEMS\".",
+      "question": {
+        "hide_text": false,
+        "text": "[Q#1] Arrange these steps in the proper sequence according to the document.",
+        "read_text": true,
+        "image": ""
+      },
+      "items": [
+        "Write comprehensive tests",
+        "Refactor existing code",
+        "Define clear interfaces"
+      ],
+      "correctAnswer": [
+        "Define clear interfaces",
+        "Write comprehensive tests",
+        "Refactor existing code"
+      ],
+      "type": "reordering",
+      "difficulty": "MEDIUM"
+    },
+    {
+      "id": 323170796,
+      "marks": 2,
+      "explanation": "This is a mocked explanation for the document content. Review the document text for details such as: \"HYBRID BEAMFORMING FOR MM-WAVE SYSTEMS\".",
+      "question": {
+        "hide_text": false,
+        "text": "[Q#2] Put these activities in correct order from the document.",
+        "read_text": true,
+        "image": ""
+      },
+      "items": [
+        "Identify system boundaries",
+        "Document the design",
+        "Implement individual modules"
+      ],
+      "correctAnswer": [
+        "Identify system boundaries",
+        "Implement individual modules",
+        "Document the design"
+      ],
+      "type": "reordering",
+      "difficulty": "MEDIUM"
+    },
+    {
+      "id": 261195742,
+      "marks": 2,
+      "explanation": "This is a mocked explanation for the document content. Review the document text for details such as: \"HYBRID BEAMFORMING FOR MM-WAVE SYSTEMS\".",
+      "question": {
+        "hide_text": false,
+        "text": "[Q#1] Arrange these steps in the proper sequence according to the document.",
+        "read_text": true,
+        "image": ""
+      },
+      "items": [
+        "Write comprehensive tests",
+        "Refactor existing code",
+        "Define clear interfaces"
+      ],
+      "correctAnswer": [
+        "Define clear interfaces",
+        "Write comprehensive tests",
+        "Refactor existing code"
+      ],
+      "type": "reordering",
+      "difficulty": "HARD"
+    },
+    {
+      "id": 711390505,
+      "marks": 2,
+      "explanation": "This is a mocked explanation for the document content. Review the document text for details such as: \"HYBRID BEAMFORMING FOR MM-WAVE SYSTEMS\".",
+      "question": {
+        "hide_text": false,
+        "text": "[Q#1] Sort the following into positive and negative outcomes from the document.",
+        "read_text": true,
+        "image": ""
+      },
+      "categories": [
+        "Positive",
+        "Negative"
+      ],
+      "items": [
+        "Maintainable code",
+        "Hardcoded security credentials"
+      ],
+      "correctAnswer": {
+        "Positive": [
+          "Maintainable code"
+        ],
+        "Negative": [
+          "Hardcoded security credentials"
+        ]
+      },
+      "type": "sorting",
+      "difficulty": "EASY"
+    },
+    {
+      "id": 889193266,
+      "marks": 2,
+      "explanation": "This is a mocked explanation for the document content. Review the document text for details such as: \"HYBRID BEAMFORMING FOR MM-WAVE SYSTEMS\".",
+      "question": {
+        "hide_text": false,
+        "text": "[Q#2] Sort these examples into correct and incorrect practices from the document.",
+        "read_text": true,
+        "image": ""
+      },
+      "categories": [
+        "Correct",
+        "Incorrect"
+      ],
+      "items": [
+        "Consistent naming conventions",
+        "Disorganized control flow"
+      ],
+      "correctAnswer": {
+        "Correct": [
+          "Consistent naming conventions"
+        ],
+        "Incorrect": [
+          "Disorganized control flow"
+        ]
+      },
+      "type": "sorting",
+      "difficulty": "EASY"
+    },
+    {
+      "id": 303796847,
+      "marks": 2,
+      "explanation": "This is a mocked explanation for the document content. Review the document text for details such as: \"HYBRID BEAMFORMING FOR MM-WAVE SYSTEMS\".",
+      "question": {
+        "hide_text": false,
+        "text": "[Q#1] Sort the following into positive and negative outcomes from the document.",
+        "read_text": true,
+        "image": ""
+      },
+      "categories": [
+        "Positive",
+        "Negative"
+      ],
+      "items": [
+        "Maintainable code",
+        "Hardcoded security credentials"
+      ],
+      "correctAnswer": {
+        "Positive": [
+          "Maintainable code"
+        ],
+        "Negative": [
+          "Hardcoded security credentials"
+        ]
+      },
+      "type": "sorting",
+      "difficulty": "MEDIUM"
+    },
+    {
+      "id": 909726855,
+      "marks": 2,
+      "explanation": "This is a mocked explanation for the document content. Review the document text for details such as: \"HYBRID BEAMFORMING FOR MM-WAVE SYSTEMS\".",
+      "question": {
+        "hide_text": false,
+        "text": "[Q#2] Sort these examples into correct and incorrect practices from the document.",
+        "read_text": true,
+        "image": ""
+      },
+      "categories": [
+        "Correct",
+        "Incorrect"
+      ],
+      "items": [
+        "Consistent naming conventions",
+        "Disorganized control flow"
+      ],
+      "correctAnswer": {
+        "Correct": [
+          "Consistent naming conventions"
+        ],
+        "Incorrect": [
+          "Disorganized control flow"
+        ]
+      },
+      "type": "sorting",
+      "difficulty": "MEDIUM"
+    }
+  ]
+}
+

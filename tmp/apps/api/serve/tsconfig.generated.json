@@ -1,0 +1,34 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "@qgp/auth": [
+        "libs/auth/src/index.ts"
+      ],
+      "@qgp/database": [
+        "libs/database/src/index.ts"
+      ],
+      "@qgp/ai-generator": [
+        "libs/ai-generator/src/index.ts"
+      ],
+      "@qgp/export-json": [
+        "libs/export-json/src/index.ts"
+      ],
+      "@qgp/question-schema": [
+        "libs/question-schema/src/index.ts"
+      ],
+      "@qgp/audit-logs": [
+        "libs/audit-logs/src/index.ts"
+      ],
+      "@qgp/role-permission": [
+        "libs/role-permission/src/index.ts"
+      ],
+      "@qgp/shared-ui": [
+        "libs/shared-ui/src/index.ts"
+      ],
+      "@qgp/document-upload": [
+        "libs/document-upload/src/index.ts"
+      ]
+    }
+  },
+  "extends": "..\\..\\..\\..\\apps\\api\\tsconfig.app.json"
+}

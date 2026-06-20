@@ -1,0 +1,8 @@
+{
+  "/access-denied/page": "app/access-denied/page.js",
+  "/principal/dashboard/page": "app/principal/dashboard/page.js",
+  "/page": "app/page.js",
+  "/hod/dashboard/page": "app/hod/dashboard/page.js",
+  "/student/page": "app/student/page.js",
+  "/login/page": "app/login/page.js"
+}

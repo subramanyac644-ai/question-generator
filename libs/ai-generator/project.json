@@ -1,0 +1,23 @@
+{
+  "name": "ai-generator",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/ai-generator/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/ai-generator/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/ai-generator"],
+      "options": {
+        "jestConfig": "libs/ai-generator/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+//@ts-check
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const { composePlugins, withNx } = require('@nx/next');
+
+/**
+ * @type {import('@nx/next/plugins/with-nx').WithNxOptions}
+ **/
+const nextConfig = {
+  nx: {
+    svgr: false,
+  },
+  reactStrictMode: true,
+
+  // Proxy all /api/* requests to the NestJS backend on port 5000
+  // This way the frontend and API are both accessible from port 3000
+  async rewrites() {
+    return [
+      {
+        source: '/api/:path*',
+        destination: 'http://127.0.0.1:5000/api/:path*',
+      },
+      {
+        source: '/uploads/:path*',
+        destination: 'http://127.0.0.1:5000/uploads/:path*',
+      },
+    ];
+  },
+};
+
+const plugins = [
+  withNx,
+];
+
+module.exports = composePlugins(...plugins)(nextConfig);

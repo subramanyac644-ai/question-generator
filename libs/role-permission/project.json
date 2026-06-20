@@ -1,0 +1,15 @@
+{
+  "name": "role-permission",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/role-permission/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/role-permission/**/*.ts"]
+      }
+    }
+  }
+}

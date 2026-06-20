@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "ignoreDeprecations": "5.0",
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2022",
+    "module": "esnext",
+    "lib": ["es2022", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@qgp/auth": ["libs/auth/src/index.ts"],
+      "@qgp/database": ["libs/database/src/index.ts"],
+      "@qgp/ai-generator": ["libs/ai-generator/src/index.ts"],
+      "@qgp/export-json": ["libs/export-json/src/index.ts"],
+      "@qgp/question-schema": ["libs/question-schema/src/index.ts"],
+      "@qgp/audit-logs": ["libs/audit-logs/src/index.ts"],
+      "@qgp/role-permission": ["libs/role-permission/src/index.ts"],
+      "@qgp/shared-ui": ["libs/shared-ui/src/index.ts"],
+      "@qgp/document-upload": ["libs/document-upload/src/index.ts"],
+      "@qgp/pdf-processor": ["libs/pdf-processor/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}
