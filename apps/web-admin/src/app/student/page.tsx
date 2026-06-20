@@ -146,7 +146,7 @@ export default function StudentDashboard() {
           const idxA = orderMap.get(a.question.id);
           const idxB = orderMap.get(b.question.id);
           if (idxA !== undefined && idxB !== undefined) {
-            return idxA - idxB;
+            return Number(idxA) - Number(idxB);
           }
           return 0;
         });
