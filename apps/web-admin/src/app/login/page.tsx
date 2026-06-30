@@ -89,8 +89,12 @@ export default function LoginPage() {
 
         if (!res.ok) {
           // Handle cases where Next.js proxy itself fails (502 Bad Gateway = API down)
-          if (res.status === 502 || res.status === 503 || res.status === 500) {
+          if (res.status === 502 || res.status === 503) {
             throw new Error('Backend API is not running. Please start the API server and try again.');
+          }
+          if (res.status === 500) {
+             const errBody = await res.json().catch(() => ({}));
+             throw new Error(`Internal Server Error (500): ${errBody.message || JSON.stringify(errBody)}`);
           }
           const errBody = await res.json().catch(() => ({}));
           const msg = errBody.message;
